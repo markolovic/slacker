@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :courses
-
   get 'courses/index'
+
+  resources :courses
 
   get 'courses/add'
 

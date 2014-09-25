@@ -1,0 +1,21 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700);
+
+#header {
+  background-color: white;
+  padding-left: 15px;
+  h1 {
+    font-family: "Open Sans", sans-serif;
+    color: #66CD00;
+    font-weight: bold;
+    //   letter-spacing: 0.1em;
+  }
+}
+
+ul {
+  padding-left: 20px;
+  margin-top: 20px;
+  list-style-type: none;
+}
+

@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   def index
+    @classes = Course.all  #.find(:all, :order => 'created_at DESC', :limit => 10)
   end
 
   def add

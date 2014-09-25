@@ -1,2 +1,9 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<h2>My Classes</h2>
+
+<ul id="classes-list">
+  <% @classes.each do |c| %>
+      <li>
+        <h4><%= link_to c.name, "#{c.id}" %></h4>  
+      </li>
+    <% end %>
+</ul>

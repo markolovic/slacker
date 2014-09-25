@@ -1,8 +1,7 @@
-<h1>Courses#show</h1>
-<p>Find me in app/views/courses/show.html.erb</p>
-<h2>Class</h2>
-<%= @class.name %>
-<h2>Credits</h2>
-<%= @class.credits %>
-<br>
-<%= link_to "All classes", courses_index_path %>
+<h2><%= @class.name %></h2>
+  <ul>
+    <p><strong>Credits: </strong> <%= @class.credits %></p> 
+  </ul>
+  <br>
+  <br>
+  <p><%= link_to "All classes", courses_index_path %></p>
