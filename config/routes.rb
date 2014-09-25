@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'courses/index'
+
+  get 'courses/add'
+
+  get 'courses/show'
+
   root 'static_pages#home'
 
   get  'static_pages/home'
