@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :courses
+
   get 'courses/index'
 
   get 'courses/add'
 
-  get 'courses/show'
+  get 'courses/:id', to: 'courses#show'
 
   root 'static_pages#home'
 
