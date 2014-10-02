@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910191337) do
+ActiveRecord::Schema.define(version: 20140926055854) do
+
+  create_table "assessments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.decimal  "weight"
+    t.string   "category"
+    t.decimal  "score"
+    t.integer  "rep"
+    t.integer  "course_id"
+  end
 
   create_table "courses", force: true do |t|
     t.string   "name"

@@ -1,0 +1,13 @@
+<h2>New Class</h2>
+  <%= form_for(@class, html: {role: "form"}) do |c| %>
+    <div id="new-course" class="form-group">
+      <%= c.label :name %>
+      <%= c.text_field(:name, html: {class: "form-control"}) %>
+      <br>
+      <%= c.label :credits %>
+      <%= c.text_field :credits %>
+      <br>
+      <%= c.submit %>
+    </div>
+  <% end %>
+</div>

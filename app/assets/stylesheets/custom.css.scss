@@ -5,11 +5,16 @@
 #header {
   background-color: white;
   padding-left: 15px;
-  h1 {
-    font-family: "Open Sans", sans-serif;
-    color: #66CD00;
-    font-weight: bold;
+  #logo {
+    font-family: "Open Sans", sans-serif  !important;
+    color: #66CD00                        !important;
+    font-weight: bold                     !important;
+    text-decoration: none                 !important;
     //   letter-spacing: 0.1em;
+    &:hover {
+      color: #66CD00                      !important;
+      text-decoration: none               !important;
+    }
   }
 }
 
@@ -19,3 +24,24 @@ ul {
   list-style-type: none;
 }
 
+#ass-table {
+  font-size: 18px;
+  width: 275px;
+  border-top: none;
+  tr, td, p {
+    padding-top: 4px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  
+}
+  
+.weight-column {
+  font-size: 16px;
+  padding-top: 6px                         !important;
+  font-weight: bold                        !important;
+}
+
+#new-course {
+  width: 400px;
+}

@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'courses/index'
-
-  resources :courses
-
-  get 'courses/add'
-
-  get 'courses/:id', to: 'courses#show'
-
-  root 'static_pages#home'
-
-  get  'static_pages/home'
-
-  get  'static_pages/help'
+  root        'static_pages#home'
+# get         'assessments/index'
+# get         'assessments/new'
+# get         'assessments/show'
+# get         'courses/index'
+  resources   :courses
+# get         'courses/new'
+  get         'static_pages/home'
+  get         'static_pages/help'
+  # get         'courses/:id', to: 'courses#show'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

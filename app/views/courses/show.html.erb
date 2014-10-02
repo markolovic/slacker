@@ -2,6 +2,19 @@
   <ul>
     <p><strong>Credits: </strong> <%= @class.credits %></p> 
   </ul>
+  <table class="table table-hover" id="ass-table">
+    <% @class.assessments.all.each do |ass| %>
+      <tr>
+        <td>
+          <p><%= ass.name %></p>
+        </td>
+        <td>
+          <p class="weight-column"><%= ass.weight_percent %></p>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+    
   <br>
   <br>
-  <p><%= link_to "All classes", courses_index_path %></p>
+  <p><%= link_to "All classes", courses_path %></p>
