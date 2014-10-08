@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 # get         'assessments/show'
 # get         'courses/index'
   resources   :courses
+  resources   :assessments
 # get         'courses/new'
   get         'static_pages/home'
   get         'static_pages/help'

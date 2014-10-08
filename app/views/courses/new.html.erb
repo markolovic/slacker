@@ -1,4 +1,6 @@
 <h2>New Class</h2>
+<p><%= params[:id] %></p>
+<p><%= params[:action] %></p>
   <%= form_for(@class, html: {role: "form"}) do |c| %>
     <div id="new-course" class="form-group">
       <%= c.label :name %>

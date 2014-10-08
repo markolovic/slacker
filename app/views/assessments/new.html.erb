@@ -1,0 +1,14 @@
+<h1>Assessments#new</h1>
+  <%= form_for(@ass, html: {role: "form"}) do |c| %>
+    <div id="new-ass" class="form-group">
+      <%= c.label :category %>
+      <%= c.text_field(:category, html: {class: "form-control"}) %>
+      <br>
+      <%= c.label :weight %>
+      <%= c.text_field :weight %>
+      <br>
+      <%= c.submit %>
+    </div>
+  <% end %>
+</div>
+
