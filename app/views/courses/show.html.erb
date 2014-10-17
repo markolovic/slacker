@@ -3,13 +3,19 @@
     <p><strong>Credits: </strong> <%= @class.credits %></p> 
   </ul>
   <table class="table table-hover" id="ass-table">
-    <% @class.assessments.all.each do |ass| %>
+    <% @class.categories.all.each do |cat| %>
       <tr>
         <td>
-          <p><%= ass.name %></p>
+          <p><%= link_to cat.name_pluralized, cat %></p>
         </td>
-        <td>
-          <p class="weight-column"><%= ass.weight_percent %></p>
+        <td class="weight-column">
+          <p><%= cat.weight_percent %></p>
+        </td>
+        <td class="weight-column">
+          <p> 
+            <%= number_to_percentage(cat.unit_weight, precision: 2) %> 
+            <%#<small><%= " (for 10 points)" if cat.unit_weight >= 15 %></small>%>
+          </p>
         </td>
       </tr>
     <% end %>
@@ -17,5 +23,8 @@
     
   <br>
   <br>
-  <p><%= link_to "Add new assessment", new_assessment_path(course_id: params[:id]) %></p>
+  <p><%= link_to "Add new category", new_category_path(course_id: params[:id]) 
+                                                                            %></p>
   <p><%= link_to "All classes", courses_path %></p>
+
+  <%= render 'courses/unit_weight'  %>

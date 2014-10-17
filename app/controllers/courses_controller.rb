@@ -8,6 +8,9 @@ class CoursesController < ApplicationController
     @class = Course.new
   end
 
+  def per_unit_weight
+  end
+
   def show
     @class = Course.find(params[:id])
   end

@@ -3,16 +3,14 @@ class AssessmentsController < ApplicationController
   end
 
   def new
-    @parent_course = params[:course_id].to_i
     @ass = Assessment.new
   end
 
   def create
-      @ass = Assessment.new(assessment_params)
-      @ass.rep = Assessment.where(category: params[:assessment][:category]).count + 1
-      @ass.course_id = @parent_course
-      @ass.save
-      redirect_to Course.find(@parent_course) # change to course_id
+    @ass = Assessments.new(assessment_params)
+    @ass.rep = Assessments.where(category: params[:category]).count + 1
+    @ass.save
+    redirect_to @ass
   end
 
   def show

@@ -1,0 +1,6 @@
+%h1 #{@cat.course.name} #{@cat.name_pluralized} 
+%ul
+  - @cat.assessments.each do |ass|
+    %li 
+      %p #{@cat.name} #{ass.rep}
+

@@ -1,0 +1,6 @@
+add special interface
+  cost of skipping class, probability (pop-quiz, random attendance credit)
+  cost of skipping assignment
+  cost of per point lost on test, assignment.
+  
+useless without canvas api?

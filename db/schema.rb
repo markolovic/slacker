@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140926055854) do
+ActiveRecord::Schema.define(version: 20141017181640) do
 
   create_table "assessments", force: true do |t|
     t.datetime "created_at"
@@ -22,7 +22,22 @@ ActiveRecord::Schema.define(version: 20140926055854) do
     t.decimal  "score"
     t.integer  "rep"
     t.integer  "course_id"
+    t.integer  "category_id"
   end
+
+  add_index "assessments", ["category_id"], name: "index_assessments_on_category_id"
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.decimal  "weight"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "reps"
+    t.boolean  "attendance", default: false
+  end
+
+  add_index "categories", ["course_id"], name: "index_categories_on_course_id"
 
   create_table "courses", force: true do |t|
     t.string   "name"

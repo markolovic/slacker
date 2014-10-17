@@ -1,0 +1,11 @@
+%h2= Course.find(params[:course_id]).name 
+= semantic_form_for @cat do |f|
+  -#= f.inputs :course_id
+  = f.input :name
+  = f.input :weight
+  = f.input :reps
+  = f.input :attendance, :label => "Attendance credit"
+  = hidden_field_tag :course_id, params[:course_id]
+  = f.actions
+
+-#http://stackoverflow.com/questions/2044497/formtastic-how-to-prepopulate-a-string-input-with-a-value

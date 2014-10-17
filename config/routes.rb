@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'categories/new'
+
   root        'static_pages#home'
 # get         'assessments/index'
 # get         'assessments/new'
 # get         'assessments/show'
 # get         'courses/index'
+  get         'courses/per_unit_weight'
   resources   :courses
   resources   :assessments
+  resources   :categories
 # get         'courses/new'
   get         'static_pages/home'
   get         'static_pages/help'
