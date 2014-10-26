@@ -15,13 +15,22 @@ gem 'haml'
 gem 'formtastic', '~> 2.3.1'
 gem 'formtastic-bootstrap'
 
-group :development do
+group :development, :test do
   gem 'spring'
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'guard-rspec', require: false
+  #gem 'did_you_mean'
 end
 
 group :test do
+  #gem 'minitest-reporters'
+  #gem 'mini_backtrace'
+  #gem 'guard-minitest'
+  gem 'factory_girl_rails'
   gem 'shoulda'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 group :production do

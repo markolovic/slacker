@@ -1,11 +1,45 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  weight: 9.99
-  course_id: 1
+Assignment:
+  name: Individual Assignment
+  weight: 0.1
+  course: stats
+  reps: 8
+  attendance: false
 
-two:
-  name: MyString
-  weight: 9.99
-  course_id: 1
+Midterm:
+  name: Midterm 1 
+  weight: 0.2
+  course: stats
+  reps: 1
+  attendance: false
+
+PhysFinal:
+  name: Final
+  weight: 0.3
+  course: physics
+  reps: 1
+  attendance: false
+
+StatsFinal:
+  name: Final 
+  weight: 0.25
+  course: stats
+  reps: 1
+  attendance: false
+
+StatsAssignment:
+  name: Individual Assignment
+  weight: 0.1
+  course: stats
+  reps: 8
+  attendance: false
+
+StatsQuiz:
+  name: Pop Quiz
+  weight: 0.1
+  course: stats
+  reps: 30
+  attendance: true
+
+

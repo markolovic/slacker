@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  credits: 1
+physics:
+  id: 1
+  name: PHYS 2220
+  credits: 3
 
-two:
-  name: MyString
+stats:
+  id: 2
+  name: STAT 2300
+  credits: 3
+
+lab:
+  name: PHYS 2215
   credits: 1

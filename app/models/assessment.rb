@@ -1,6 +1,8 @@
 class Assessment < ActiveRecord::Base
   belongs_to :category
-
+  validates_presence_of :category_id
+  validates :rep, presence: true, numericality: {integer_only: true, 
+                                                 greater_than_or_equal_to: 1 }
 
   #def name
     #target = Course.find(course_id).assessments.where(category: category)

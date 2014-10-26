@@ -1,6 +1,17 @@
 %h1 #{@cat.course.name} #{@cat.name_pluralized} 
-%ul
-  - @cat.assessments.each do |ass|
-    %li 
-      %p #{@cat.name} #{ass.rep}
+%table
+  %th 
+  %th Score
+  = semantic_form_for @cat do |f|
+    = f.inputs :for => :assessments do |a|
+      - #@cat.assessments.each do |ass|
+      %tr
+        %td #{@cat.name} #{@count}
+        - if @cat.assessments.where(rep: @count).take.score
+          %td= @cat.assessments.where(rep: @count).take.score
+        - else
+          %td= a.input :score, :label => false
+      - @count += 1 
+    = f.actions
+
 

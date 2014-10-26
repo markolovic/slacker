@@ -14,7 +14,7 @@
         <td class="weight-column">
           <p> 
             <%= number_to_percentage(cat.unit_weight, precision: 2) %> 
-            <%#<small><%= " (for 10 points)" if cat.unit_weight >= 15 %></small>%>
+            <small><%= " (for 10 points)" if cat.weight >= 0.15 %></small>
           </p>
         </td>
       </tr>
