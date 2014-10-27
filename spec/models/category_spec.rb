@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Category, :type => :model do
+describe Category, :type => :model do
   let(:cat) { build(:category) }
   subject { cat }
   it { is_expected.to be_valid } 
@@ -25,3 +25,23 @@ RSpec.describe Category, :type => :model do
     end
   end
 end
+
+describe Category, "#create" do
+  it "create new category" do
+    #create(:course)
+    #@response.params[:course_id] = 1
+  end
+end
+
+describe Category, "#name_pluralized" do
+  it "pluralize name if reps > 1" do
+    cat = create(:category)
+    expect(cat.name_pluralized).to eq "Individual Assignments"
+  end
+  it "does not pluralize name if reps = 1" do
+    cat = create(:midterm)
+    expect(cat.name_pluralized).to eq cat.name
+  end
+end
+
+

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 # get         'assessments/show'
 # get         'courses/index'
   get         'courses/per_unit_weight'
-  resources   :courses
+  resources   :courses 
+    #delete :del_course, on: :member
   resources   :assessments
   resources   :categories
 # get         'courses/new'

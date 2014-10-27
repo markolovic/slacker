@@ -8,18 +8,22 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+#gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',         group: :doc
 gem 'haml'
 gem 'formtastic', '~> 2.3.1'
 gem 'formtastic-bootstrap'
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'spring'
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec', require: false
+  gem 'capybara'
+  gem 'capybara-webkit'
   #gem 'did_you_mean'
 end
 
@@ -29,7 +33,6 @@ group :test do
   #gem 'guard-minitest'
   gem 'factory_girl_rails'
   gem 'shoulda'
-  gem 'capybara'
   gem 'database_cleaner'
 end
 

@@ -1,3 +1,15 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+change_text = ->
+  if $('.cross').is(':visible') 
+    $('#delete').text("Back")
+  else 
+    $('#delete').text("Delete a class")
+
+$ ->
+  $('#delete').on "click", ->
+    event.preventDefault();
+
+    $('.cross').toggleClass('visible')
+    change_text()
+#`$( document ).ready(function() {
+    #$('h1').text("sdft")
+#});`

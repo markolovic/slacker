@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,700);
 
 #header {
@@ -19,7 +21,7 @@
 }
 
 ul {
-  padding-left: 20px;
+  /*padding-left: 20px;*/
   margin-top: 20px;
   list-style-type: none;
 }
@@ -49,4 +51,25 @@ ul {
 
 #new-course {
   width: 400px;
+}
+
+.course-name {
+  .cross {
+    /*float: left;*/
+    display: none;
+    padding-bottom: 4px;
+    i {
+      color: #666;
+      &:hover {
+        color: #444;
+      }
+    }
+  }
+  .visible {
+    display: inline-block;
+  }
+  h4 {
+    /*float: left;*/
+    display: inline-block;
+  }
 }

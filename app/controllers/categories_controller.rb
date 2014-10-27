@@ -13,9 +13,7 @@ class CategoriesController < ApplicationController
     @cat = Category.new(category_params)
     @cat.course_id = params[:course_id]
     @cat.save
-    params[:category][:reps].to_i.times do |i|
-      @cat.assessments.create(rep: i+1)
-    end
+    create_reps(@cat, params[:category][:reps])
     redirect_to @cat.course
   end
 

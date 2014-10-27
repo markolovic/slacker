@@ -1,0 +1,12 @@
+%h2 My Classes
+%ul#classes-list
+  - count = 1
+  - @classes.each do |c|
+    %li.course-name{:id => "course-name-#{count}"}
+      = link_to(course_path(c.id), method: :delete, class: "cross") do
+        %i.fa.fa-times
+      %h4= link_to c.name, "/courses/#{c.id}"
+    - count += 1
+%br
+  %p= link_to "Add new class", new_course_path
+  %p= link_to "Delete a class", nil, id: 'delete'
