@@ -1,0 +1,26 @@
+%h2= @class.name
+%ul
+  %p
+    %strong Credits:
+    = @class.credits
+%table#ass-table.table.table-hover
+  - @class.categories.all.each do |cat|
+    %tr
+      %td.course-name{id: "category-id-#{cat.id}"}
+        = link_to(category_path(cat.id), method: :delete, class: "cross") do
+          %i.fa.fa-times.fa-lg
+        %p= link_to cat.name_pluralized, cat
+      %td.weight-column
+        %p= cat.weight_percent
+      %td.weight-column
+        %p
+          = number_to_percentage(cat.unit_weight, precision: 2)
+          %small= " (for 10 points)" if cat.weight >= 0.15
+%br
+  %br
+    %p= link_to "Add new category", new_category_path(course_id: params[:id])        |
+    %p= link_to "Delete a category", nil, id: 'delete'
+
+    %p= link_to "All classes", courses_path
+
+    = render 'courses/unit_weight'

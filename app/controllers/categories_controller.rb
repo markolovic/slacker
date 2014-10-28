@@ -22,6 +22,13 @@ class CategoriesController < ApplicationController
     #redirect_to sCategory.find params[:id]
   end
 
+  def destroy
+    cat = Category.find(params[:id])
+    cat.destroy  # necessary?
+    redirect_to course_path(cat.course.id)
+    #render nothing: true
+  end
+
   private
 
     def category_params

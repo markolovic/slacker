@@ -5,6 +5,17 @@ FactoryGirl.define do
     course # for course factor :course
     reps 8
       #attendance false
+
+    #factory :category_with_assessments do
+      #reps 20
+      #transient do
+        #assessments_count 20
+      #end
+
+      #after(:create) do |category, evaluator|
+        #create_list(:assessment, evaluator.reps, category: category)
+      #end
+    #end
   end
 
   factory :midterm, class: Category do
@@ -21,9 +32,9 @@ FactoryGirl.define do
   end
 
   factory :assessment do
-    rep 1
+    sequence :rep, 1
     category  # for category factory :category
-      # score nil
   end
+
 end
     
