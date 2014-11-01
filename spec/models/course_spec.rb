@@ -13,3 +13,11 @@ describe Course do
     end
   end
 end
+
+describe Course, "#current_grade" do
+  it "returns the current grade" do
+    course = create(:course_with_assessments)
+    visit course_path(course.id)
+    expect(page).to have_css
+  end
+end
