@@ -12,9 +12,12 @@ class CategoriesController < ApplicationController
   def create
     @cat = Category.new(category_params)
     @cat.course_id = params[:course_id]
-    @cat.save
-    create_reps(@cat, params[:category][:reps])
-    redirect_to @cat.course
+    if @cat.save
+      create_reps(@cat, params[:category][:reps])
+      redirect_to @cat.course
+    else
+      render :new
+    end
   end
 
   def update
@@ -25,7 +28,7 @@ class CategoriesController < ApplicationController
   def destroy
     cat = Category.find(params[:id])
     cat.destroy  # necessary?
-    redirect_to course_path(cat.course.id)
+    redirect_to course_path(params[:id])
     #render nothing: true
   end
 
