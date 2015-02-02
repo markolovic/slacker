@@ -26,10 +26,18 @@ describe Category, :type => :model do
   end
 end
 
-describe Category, "#create" do
-  it "create new category" do
-    #create(:course)
-    #@response.params[:course_id] = 1
+describe Category, "#unit_weight" do
+  context "weight > 0.15" do
+    it "returns weight per rep" do
+      cat = create(:category, weight: 0.2, reps: 1)      
+      expect(cat.unit_weight).to eq 2 
+    end
+  end
+  context "weight < 0.15" do
+    it "returns weight per rep" do
+      cat = create(:category, weight: 0.1, reps: 8)      
+      expect(cat.unit_weight).to eq 1.25 
+    end
   end
 end
 
@@ -41,6 +49,13 @@ describe Category, "#name_pluralized" do
   it "does not pluralize name if reps = 1" do
     cat = create(:midterm)
     expect(cat.name_pluralized).to eq cat.name
+  end
+end
+
+describe Category, "#weight_percent" do
+  it "returns formatted string" do
+    cat = create(:category, weight: 0.3)
+    expect(cat.weight_percent).to eq "30.0%"
   end
 end
 

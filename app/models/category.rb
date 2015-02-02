@@ -16,9 +16,10 @@ class Category < ActiveRecord::Base
 
   def unit_weight
     uweight = weight * 100 / reps
-    if uweight >= 15 
-      uweight /= 10
+    if uweight >= 15
+      uweight = uweight / 10
     end
+    uweight
     #if uweight >= 1.15
       #((uweight* 10).round(2)).to_s + "%" + " (for 10 points)" 
     #else
