@@ -4,6 +4,8 @@ class Course < ActiveRecord::Base
   validates :credits, presence: true
 
   def current_grade
-    
+    #categories.all.each do |cat|
+    #end
+    "current grade goes here"
   end
 end

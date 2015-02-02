@@ -16,8 +16,17 @@ end
 
 describe Course, "#current_grade" do
   it "returns the current grade" do
-    course = create(:course_with_assessments)
-    visit course_path(course.id)
-    expect(page).to have_css
+    pending
+    #course = create(:course_with_assessments, reps: 5, score: 0.7)
+    course_with_assessments
+    expect(course.current_grade).to eq 0.5
+  end
+end
+
+def course_with_assessments 
+  course = create(:course)
+  categories = create_pair(:category, reps: 5, course: course)
+  categories.each do |cat|
+    create_list(:assessment, 5, category: cat, score: 0.5) 
   end
 end

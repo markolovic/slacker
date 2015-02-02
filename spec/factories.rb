@@ -38,7 +38,7 @@ FactoryGirl.define do
     factory :course_with_assessments do
 
       transient do
-        categories_count 5
+        categories_count 2
       end
 
       after(:create) do |course, evaluator|
