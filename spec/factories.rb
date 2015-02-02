@@ -16,6 +16,7 @@ FactoryGirl.define do
       after(:create) do |category, evaluator|
         create_list(:assessment, evaluator.reps, category: category)
       end
+      #TODO not creating assessments belonging to category
     end
   end
 

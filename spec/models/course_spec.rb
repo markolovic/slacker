@@ -18,14 +18,19 @@ describe Course, "#current_grade" do
   it "returns the current grade" do
     pending
     #course = create(:course_with_assessments, reps: 5, score: 0.7)
-    course_with_assessments
+    #course_with_assessments
+    course = create(:course)
+    categories = create_pair(:category_with_assessments, reps: 5, course: course)
+    categories.each do |cat|
+      create_list(:assessment, 5, category: cat, score: 0.5) 
+    end
     expect(course.current_grade).to eq 0.5
   end
 end
 
 def course_with_assessments 
   course = create(:course)
-  categories = create_pair(:category, reps: 5, course: course)
+  categories = create_pair(:category_with_assessments, reps: 5, course: course)
   categories.each do |cat|
     create_list(:assessment, 5, category: cat, score: 0.5) 
   end

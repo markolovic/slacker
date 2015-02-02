@@ -23,6 +23,22 @@ describe Category, :type => :model do
       create(:category, course_id: cat.course_id)
       expect(cat).not_to be_valid
     end
+    it "assessments are invalid" do
+      cat.save
+      ass = cat.assessments.new
+      ass.score = 2
+      ass.rep = 1
+      expect(cat).not_to be_valid
+    end
+  end
+  context "should save if" do
+    it "assessments are valid" do
+      cat.save
+      ass = cat.assessments.new
+      ass.score = 1
+      ass.rep = 1
+      expect(cat).to be_valid
+    end
   end
 end
 
@@ -56,6 +72,31 @@ describe Category, "#weight_percent" do
   it "returns formatted string" do
     cat = create(:category, weight: 0.3)
     expect(cat.weight_percent).to eq "30.0%"
+  end
+end
+
+describe Category, "#grade" do
+  it "returns right grade" do
+    cat = create(:category)
+    10.times { |i|
+      if i < 4
+        cat.assessments.new(score: 0.5, rep: i+1, category: cat)
+      elsif i >= 4 and i < 8
+        cat.assessments.new(score: 0.7, rep: i+1, category: cat)
+      else
+        cat.assessments.new(rep: i+1, category: cat)
+      end
+    }
+    cat.save
+    expect(cat.assessments.all.size).to eq 10
+    expect(cat.assessments.first.score).to eq 0.5
+    expect(cat.assessments.last.score).to be_nil
+    expect(cat.grade).to eq 0.6
+  end
+  it "returns nil when no scores" do 
+    cat = create(:category)
+    create(:assessment, category: cat)
+    expect(cat.grade).to eq nil
   end
 end
 

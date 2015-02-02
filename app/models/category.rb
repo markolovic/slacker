@@ -35,4 +35,20 @@ class Category < ActiveRecord::Base
     end
   end
 
+  def grade
+    #TODO better way?
+    counter = 0
+    sum = 0
+    assessments.all.each { |ass|
+      unless ass.score.nil?
+        sum += ass.score
+        counter += 1
+      end
+    } 
+    sum / counter unless counter == 0
+    #returns nil if counter == 0
+  end
+
+  private
+
 end
