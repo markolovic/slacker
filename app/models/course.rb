@@ -6,19 +6,15 @@ class Course < ActiveRecord::Base
   def current_grade
     #Use inject to return accumulative var from block?
     sum = 0
-    fullsum = 0
-    categories.all.each_with_index do |cat, i|
-      #cat.assessments.all.each_with_index do |ass, j|
-        ## try to one-line. 
-        #if ass.score
-          #sum += ass.score
-        #end
-      #end
-      #avg = sum / j
-      #fullsum += avg
+    total = 1
+    categories.all.each do |cat|
+      unless cat.grade.nil?
+        sum += cat.grade * cat.weight
+      else
+        total -= cat.weight
+      end
     end
-    fullsum /= i
-    #"current grade goes here"
+    sum /= total
   end
 end
 

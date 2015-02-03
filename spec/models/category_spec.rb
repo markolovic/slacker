@@ -92,6 +92,8 @@ describe Category, "#grade" do
     expect(cat.assessments.first.score).to eq 0.5
     expect(cat.assessments.last.score).to be_nil
     expect(cat.grade).to eq 0.6
+    #TODO figure out setup system to DRY out and remove clutter
+    #TODO replace with helper method from support/model_helper.rb
   end
   it "returns nil when no scores" do 
     cat = create(:category)

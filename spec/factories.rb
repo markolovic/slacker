@@ -6,6 +6,15 @@ FactoryGirl.define do
     reps 8
       #attendance false
 
+    factory :category_with_grade do
+      #assessment :assessment
+      # Not finished
+    end
+
+    factory :category_with_unique_name do
+      name { generate(:category_name) }
+    end
+
     factory :category_with_assessments do
       reps 10
       name { generate(:category_name) }
