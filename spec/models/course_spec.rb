@@ -14,6 +14,7 @@ describe Course do
     #it "sum of category weights is not 1" do
       #course.categories.new(:category)
     #end
+    #TODO decide whether to validate sum weight = 1
   end
 end
 
@@ -24,7 +25,7 @@ describe Course, "#current_grade" do
     course = build(:course)
     course.categories << category_with_assessments(0.5, 0.4)
     course.categories << category_with_assessments(0.7, 0.6)
-    course.save # Necessary?
+    course.save
     expect(course.categories.first.grade).to eq 0.5
     expect(course.categories.last.grade).to eq 0.7
     expect(course.categories.all.size).to eq 2
@@ -34,14 +35,14 @@ describe Course, "#current_grade" do
     course = build(:course)
     course.categories << category_with_assessments(0.5, 0.4)
     course.categories << category_with_assessments(nil, 0.6)
-    course.save # Necessary?
+    course.save
     expect(course.current_grade).to eq 0.5
   end
   it "returns nil when no category is graded" do
     course = build(:course)
     course.categories << category_with_assessments(nil, 0.4)
     course.categories << category_with_assessments(nil, 0.6)
-    course.save # Necessary?
+    course.save 
     expect(course.current_grade).to eq nil
   end
   it "returns nil when course has no categories" do
@@ -51,6 +52,19 @@ describe Course, "#current_grade" do
   #TODO DRY using before method?
 end
 
+describe Course, "#category_weights_sum" do
+  it "returns correct sum" do
+    course = build(:course)
+    course.categories << category_with_assessments(nil, 0.4)
+    course.categories << category_with_assessments(0.8, 0.2)
+    course.save 
+    expect(course.category_weights_sum).to eq 0.6
+  end
+  it "returns nil when course has no categories" do
+    course = create(:course)
+    expect(course.category_weights_sum).to be_nil
+  end
+end
 
 #def course_with_assessments 
   #course = create(:course)

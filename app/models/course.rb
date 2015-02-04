@@ -22,5 +22,19 @@ class Course < ActiveRecord::Base
     end
     #TODO refactor?
   end
+
+  def category_weights_sum
+    sum = 0
+    unless categories.all.empty?
+      categories.all.each do |cat|
+        sum += cat.weight
+      end
+      sum # Necessary?
+    else
+      return nil
+    end
+    #TODO try and refactor with inject
+  end
+
 end
 
