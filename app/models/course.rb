@@ -15,7 +15,7 @@ class Course < ActiveRecord::Base
       end
     end
     #logger.debug "
-    unless total == 0
+    unless total == 0 || categories.all.size == 0
       sum /= total
     else
       return nil

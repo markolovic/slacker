@@ -11,8 +11,13 @@ describe Course do
       course.credits = nil
       expect(course).not_to be_valid
     end
+    #it "sum of category weights is not 1" do
+      #course.categories.new(:category)
+    #end
   end
 end
+
+#TODO write course validation specs
 
 describe Course, "#current_grade" do
   it "returns the current grade when all categories have grade" do
@@ -39,6 +44,11 @@ describe Course, "#current_grade" do
     course.save # Necessary?
     expect(course.current_grade).to eq nil
   end
+  it "returns nil when course has no categories" do
+    course = create(:course)
+    expect(course.current_grade).to eq nil
+  end
+  #TODO DRY using before method?
 end
 
 
