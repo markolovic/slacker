@@ -14,7 +14,13 @@ class Course < ActiveRecord::Base
         total -= cat.weight
       end
     end
-    sum /= total
+    #logger.debug "
+    unless total == 0
+      sum /= total
+    else
+      return nil
+    end
+    #TODO refactor?
   end
 end
 

@@ -32,6 +32,13 @@ describe Course, "#current_grade" do
     course.save # Necessary?
     expect(course.current_grade).to eq 0.5
   end
+  it "returns nil when no category is graded" do
+    course = build(:course)
+    course.categories << category_with_assessments(nil, 0.4)
+    course.categories << category_with_assessments(nil, 0.6)
+    course.save # Necessary?
+    expect(course.current_grade).to eq nil
+  end
 end
 
 

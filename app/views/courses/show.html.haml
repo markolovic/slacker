@@ -1,6 +1,8 @@
+= debug @class if Rails.env.development? 
 %h2 
   =@class.name
-  %small= "#{@class.current_grade * 100}%"
+  %small= "#{@class.current_grade * 100}%" unless @class.current_grade.nil?
+  -#TODO give message when current_grade is nil
 %ul
   %p
     %strong Credits:
