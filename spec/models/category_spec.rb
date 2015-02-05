@@ -24,19 +24,14 @@ describe Category, :type => :model do
       expect(cat).not_to be_valid
     end
     it "assessments are invalid" do
-      cat.save
-      ass = cat.assessments.new
-      ass.score = 2
-      ass.rep = 1
+      cat.assessments.new(score: 2, rep: 1)
       expect(cat).not_to be_valid
     end
   end
   context "should save if" do
     it "assessments are valid" do
       cat.save
-      ass = cat.assessments.new
-      ass.score = 1
-      ass.rep = 1
+      cat.assessments.new(score: 1, rep: 1)
       expect(cat).to be_valid
     end
   end

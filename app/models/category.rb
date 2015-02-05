@@ -9,6 +9,7 @@ class Category < ActiveRecord::Base
                                      less_than_or_equal_to: 1 }
   validates :reps, numericality: { only_integer: true,
                                    greater_than_or_equal_to: 1 }  
+  #TODO validate score
 
   def weight_percent
     ((weight * 100).round(2)).to_s + "%"
