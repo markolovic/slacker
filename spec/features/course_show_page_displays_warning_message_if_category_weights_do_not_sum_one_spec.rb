@@ -8,7 +8,6 @@ feature "course show page displays warning message if category
     visit course_path(course.id)
     expect(course.categories.all.size).to eq 1 
     expect(course.categories.take.weight).not_to eq 1
-    expect(page).to have_css "p", text: "Weights"
     expect(page).to have_css "p", text: "Weights of all assessments do not sum 100%"
   end
   scenario "weights do sum one" do

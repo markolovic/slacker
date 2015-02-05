@@ -21,8 +21,8 @@ end
 #TODO write course validation specs
 
 describe Course, "#current_grade" do
+  let(:course) { build(:course) }
   it "returns the current grade when all categories have grade" do
-    course = build(:course)
     course.categories << category_with_assessments(0.5, 0.4)
     course.categories << category_with_assessments(0.7, 0.6)
     course.save
@@ -32,21 +32,19 @@ describe Course, "#current_grade" do
     expect(course.current_grade).to eq 0.62
   end
   it "returns right grade when not all categories have grade" do
-    course = build(:course)
     course.categories << category_with_assessments(0.5, 0.4)
     course.categories << category_with_assessments(nil, 0.6)
     course.save
     expect(course.current_grade).to eq 0.5
   end
   it "returns nil when no category is graded" do
-    course = build(:course)
     course.categories << category_with_assessments(nil, 0.4)
     course.categories << category_with_assessments(nil, 0.6)
     course.save 
     expect(course.current_grade).to eq nil
   end
   it "returns nil when course has no categories" do
-    course = create(:course)
+    course.save
     expect(course.current_grade).to eq nil
   end
   #TODO DRY using before method?
