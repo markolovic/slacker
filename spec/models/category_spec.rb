@@ -6,7 +6,7 @@ describe Category, :type => :model do
   it { is_expected.to be_valid } 
   context "should not save if" do
     it "reps < 1" do
-      cat.reps = nil
+      cat.reps = 0
       expect(cat).not_to be_valid
     end
     it "weight is not between 0 and 1" do
