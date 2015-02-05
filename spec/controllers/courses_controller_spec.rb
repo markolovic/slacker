@@ -5,8 +5,12 @@ describe CoursesController do
     context "when course is valid" do
       it "redirects to #show" do
         course = build(:course)
+        # Next lines stub out new and save methods and 
+        # mock expected return values
         allow(Course).to receive(:new).and_return(course)
         allow(course).to receive(:save).and_return(true)
+        # Simulates HTTP GET request routed to Course#create method
+        # with associated params[] values
         get :create, course: { name: "course 1", credits: 3 } 
         expect(response).to redirect_to(course) 
       end
