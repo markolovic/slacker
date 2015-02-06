@@ -2,8 +2,7 @@
 %h2 
   =@class.name
   %small= "#{@class.current_grade * 100}%" unless @class.current_grade.nil?
-  %p.warning= "Weights of all assessments do not sum 100%" 
-               if @class.category_weights_sum != 1
+  %p.warning= "Weights of all assessments do not sum 100%" if @class.category_weights_sum != 1
   -#TODO change to notification/warning box?
 %ul
   %p
